@@ -1,0 +1,61 @@
+version: '3.6'
+
+services:
+
+  mysql_local:
+    image: mysql
+    container_name: mysql_local
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=admin
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - db_network
+
+  postgresql_local:
+    image: postgres
+    container_name: postgresql_local
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "admin"
+    networks:
+      - db_network
+
+  customer_service_api:
+    build: ./customer-service-api
+    container_name: customer_service_api
+    restart: always
+    volumes:
+      - .:/code 
+    depends_on:
+      - mysql_local
+      - postgresql_local
+    ports:
+      - "5000:5000"
+    networks:
+      - db_network
+
+  customer_auth_service_api:
+    build: ./customer-auth-service-api
+    container_name: customer_auth_service_api
+    restart: always
+    volumes:
+      - .:/code
+    depends_on:
+      - mysql_local
+    ports:
+      - "5001:5001"
+    networks:
+      - db_network
+  
+networks:
+  db_network:
