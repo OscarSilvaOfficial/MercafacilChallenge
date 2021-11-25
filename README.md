@@ -57,7 +57,7 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
       * authentication-token: qwopiejf3984yehfdeasfnn
     * 
       ```json
-      PAYLOAD: {
+      {
         "contacts": [
           {
             "name": "macapa",
@@ -71,8 +71,7 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
       }
       ```
        ou 
-      ```json
-      PAYLOAD: 
+      ```json 
           {
             "name": "macapa",
             "cellphone": "5541988315943"
@@ -95,7 +94,7 @@ algum contato indevido.
     * Objetivo: Criar um novo usuário
     * 
       ```json
-      PAYLOAD: {
+      {
         "name": "Oscar da Silva",
         "email": "oscar@macapa.com",
         "password": "123"
@@ -107,7 +106,7 @@ algum contato indevido.
     * Objetivo: Realiza o login
     * 
       ```json
-      PAYLOAD: {
+      {
         "email": "oscar@macapa.com",
         "password": "123"
       }
