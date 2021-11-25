@@ -1,0 +1,45 @@
+POST http://localhost:5000/api/contacts HTTP/1.1
+content-type: application/json
+authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJvc2NhckBtYWNhcGEuY29tIiwibmFtZSI6Ik9zY2FyIGRhIFNpbHZhIiwicGFzc3dvcmQiOiIkMmIkMTIkLlQvTjhacUxqNGwzTmxPN1RYLjgzT05ucDJSc0E5ekFTUHBBVElmNi9DMDFiZzFXbU5zNEMifQ.Hj-iBokJkJecd5ie-P8RL-xDzQAVO11cRAW_OYxp8zQ 
+
+{
+    "contacts": [
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        },
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        },
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        },
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        },
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        }, 
+        {
+            "name": "macapa",
+            "cellphone": "5541988315943"
+        }
+    ]
+}
+
+###
+
+POST http://localhost:5000/api/contacts HTTP/1.1
+content-type: application/json
+authentication-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJvc2NhckBtYWNhcGEuY29tIiwibmFtZSI6Ik9zY2FyIGRhIFNpbHZhIiwicGFzc3dvcmQiOiIkMmIkMTIkLlQvTjhacUxqNGwzTmxPN1RYLjgzT05ucDJSc0E5ekFTUHBBVElmNi9DMDFiZzFXbU5zNEMifQ.Hj-iBokJkJecd5ie-P8RL-xDzQAVO11cRAW_OYxp8zQ
+
+{
+    "name": "varejao",
+    "cellphone": "+5541988315943"
+}
+
+###

@@ -1,0 +1,25 @@
+POST http://localhost:5001/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Oscar da Silva",
+    "email": "oscar@macapa.com",
+    "password": "123"
+}
+
+###
+
+POST http://localhost:5001/api/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "oscar@macapa.com",
+    "password": "123"
+}
+
+###
+
+
+POST http://localhost:5001/api/token/validate HTTP/1.1
+content-type: application/json
+authentication-token: aeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJvc2NhckBtYWNhcGEuY29tIiwibmFtZSI6Ik9zY2FyIGRhIFNpbHZhIiwicGFzc3dvcmQiOiIkMmIkMTIkZmtOdlUuOXM4Q1FTVHJ2LlFLWmVTdXJGSTdvWEMwWTZQaXZQNmxNUklQNk5EQW91S3RHMVMifQ.lKGKVgqfxgSJjv_7XeHfn0LuBhUWYmU3fVJDKGUWv0U
