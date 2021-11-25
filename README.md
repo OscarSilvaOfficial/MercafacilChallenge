@@ -72,10 +72,10 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
       ```
        ou 
       ```json 
-          {
-            "name": "macapa",
-            "cellphone": "5541988315943"
-          }
+      {
+        "name": "macapa",
+        "cellphone": "5541988315943"
+      }
       ```
 
 Ao criar um usuário, é necessário informar o domínio de e-mail como <b>macapa</b> ou <b>varejao</b>,
