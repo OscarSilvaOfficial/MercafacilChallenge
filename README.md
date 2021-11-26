@@ -6,22 +6,17 @@ outro para cadastrar contatos após o cliente obter o token de autenticação.
 
 ### Arquitetura Backend
 
-Utilizei uma arquitetura em camadas para separação da das responsabilidades.
+Utilizei uma arquitetura em camadas para separação das responsabilidades.
 
-* Layers
-  
-  * Domains:
-    * Responsável por separar as regras por negócio.
-  * Views: 
-    * Primeira fase onde a requisição é enviada para camada de Paser de dados e repassar para camada de business.
-  * Parser:
-    * Pega os dados enviados pela view e faz a verificação dos dados enviado da request
-  * Business:
-    * Separa a execução de verificações, conversões de dados e comunica com a camada de persistência para operações na base.
-  * Validations:
-    * Camada que implementa a criptografia e validação de hashes.
-  * Models:
-    * Implementa a persistencia de dados através das entidades.
+| Camada | Descrição |
+| --- | --- |
+| Domains | Responsável por separar as regras por negócio. |
+| Views | Primeira fase onde a requisição é enviada para camada de Paser de dados e repassar para camada de business. |
+| Parser | Pega os dados enviados pela view e faz a verificação dos dados enviado da request |
+| Business | Separa a execução de verificações, conversões de dados e comunica com a camada de persistência para operações na base. |
+| Validations | Camada que implementa a criptografia e validação de hashes. |
+| Models | Implementa a persistencia de dados através das entidades. |
+
 
 ### Instalações Local (Caso necessário)
 * Nesse projeto foi utilizado o gerênciador de pacotes poetry.
@@ -73,8 +68,9 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
     * Metodos: `POST`
     * Objetivo: Criar novos contatos
     * Informar nos headers:
-      * authentication-token: qwopiejf3984yehfdeasfnn
-    * 
+      | Header Key | Header Value | Exemple |
+      | --- | --- | --- |
+      | authentication-token | qwopiejf3984yehfdeasfnn | ``` authentication-token: qwopiejf3984yehfdeasfnn ``` |
       ```json
       {
         "contacts": [
@@ -90,6 +86,7 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
       }
       ```
        ou 
+       
       ```json 
       {
         "name": "macapa",
@@ -109,21 +106,19 @@ algum contato indevido.
 * Porta: 5001
 * Endpoints:
   * `/api/users`
-    * Metodos: `POST`
-    * Objetivo: Criar um novo usuário
-    * 
-      ```json
-      {
-        "name": "Oscar da Silva",
-        "email": "oscar@macapa.com",
-        "password": "123"
-      }
-      ```
+      * Metodos: `POST`
+      * Objetivo: Criar um novo usuário
+        ```json
+        {
+          "name": "Oscar da Silva",
+          "email": "oscar@macapa.com",
+          "password": "123"
+        }
+        ```
 
-   * `/api/signin`
+  * `/api/signin`
     * Metodos: `POST`
-    * Objetivo: Realiza o login
-    * 
+    * Objetivo: Realiza o login 
       ```json
       {
         "email": "oscar@macapa.com",
@@ -133,7 +128,8 @@ algum contato indevido.
   * `/api/token/validate`
     * Metodos: `POST`
     * Objetivo: Valida o token enviado nos `headers` da requisição no `authentication-token`
-    * 
-      ```json
-      authentication-token: ...
+      ``` json
+      {
+        authentication-token: asdçklfmv8923uedwjqa
+      }
       ```
