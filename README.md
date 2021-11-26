@@ -4,6 +4,25 @@
 O Objetivo foi criar dois microsserviços, um para criar e autenticar usuários,
 outro para cadastrar contatos após o cliente obter o token de autenticação.
 
+### Arquitetura Backend
+
+Utilizei uma arquitetura em camadas para separação da das responsabilidades.
+
+* Layers
+  
+  * Domains:
+    * Responsável por separar as regras por negócio.
+  * Views: 
+    * Primeira fase onde a requisição é enviada para camada de Paser de dados e repassar para camada de business.
+  * Parser:
+    * Pega os dados enviados pela view e faz a verificação dos dados enviado da request
+  * Business:
+    * Separa a execução de verificações, conversões de dados e comunica com a camada de persistência para operações na base.
+  * Validations:
+    * Camada que implementa a criptografia e validação de hashes.
+  * Models:
+    * Implementa a persistencia de dados através das entidades.
+
 ### Instalações Local (Caso necessário)
 * Nesse projeto foi utilizado o gerênciador de pacotes poetry.
   * Para instalar bastar seguir as instruções no site do [poetry](https://python-poetry.org/docs/)
