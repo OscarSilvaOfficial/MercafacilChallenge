@@ -1,7 +1,7 @@
 from flask_restful import Api
-from api.views.signin.view import SignInView
-from api.views.token.view import TokenView
-from api.views.users.view import UserView
+from api.domains.signin.view import SignInView
+from api.domains.token.view import TokenView
+from api.domains.users.view import UserView
 
 def routes(api: Api):
   api.add_resource(UserView, '/users')

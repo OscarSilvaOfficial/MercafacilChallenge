@@ -8,5 +8,5 @@ def parser(request):
       return abort(401, 'Token is required')
 
   return {
-    'authentication-token': request.headers.get('authentication-token')
+    'authentication_token': request.headers.get('authentication-token')
   }

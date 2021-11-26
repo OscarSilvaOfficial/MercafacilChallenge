@@ -1,4 +1,3 @@
-from flask import abort
 from sqlalchemy import Column, Integer, String
 from sqlalchemy_serializer import SerializerMixin
 from api.models import db
