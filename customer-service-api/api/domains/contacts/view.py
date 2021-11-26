@@ -1,8 +1,8 @@
 from flask import request
 from flask.views import MethodView
 from api.utils.request import parse_request
-from api.views.contacts.parser import parser
-from api.views.contacts.create import CreateContacts
+from api.domains.contacts.parser import parser
+from api.domains.contacts.business import CreateContacts
 
 
 class ContactView(MethodView, CreateContacts):
