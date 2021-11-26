@@ -54,7 +54,7 @@ obs: As configurações das bases de dados são feitas no arquivo `api/config.py
 ### Tests
 * Foram criados testes para verificar a integridade do funcionamento da aplicação,
   * Testes Unitários:
-    * Localização dos testes unitários `tests/unit/test_contact.py`
+    * Localização dos testes unitários `tests/unit/`
     * Acesse o diretório do projeto ex: `cd mercafacil-challenge/customer-auth-service-api` e rode o comando `$ python -m pytest`:
   * Testes HTTP:
     * Para rodar é necessário ter a instalação do RestClient e rodar os testes 
