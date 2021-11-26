@@ -91,7 +91,7 @@ class TestUser(BaseTests):
     created_user = self.create_user(app)
     validated_user = self.validate_user(app, created_user)
 
-    assert validated_user.status_code == 200 and validated_user.headers['authentication-token'] is not None
+    assert validated_user.status_code == 204 and validated_user.headers['authentication-token'] is not None
     
   def test_validate_token_with_invalid_token(self, app):
     response = app.test_client().post(
