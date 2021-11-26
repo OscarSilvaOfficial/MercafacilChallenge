@@ -1,4 +1,4 @@
-from api.views.contacts.create import CreateContacts
+from api.domains.contacts.business import CreateContacts
 
 class TestContact:
 
