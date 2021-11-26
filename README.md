@@ -1,3 +1,10 @@
+### Subir Infra e Serviços
+Para subir o ambiente, rode o comando
+
+```
+$ docker-compose up -d
+```
+
 # Instruções | Backend
 
 ### Intrudução
@@ -35,13 +42,6 @@ $ poetry install
 * Nesses projetos são utilizados dois SQGDs:
   * Postgresql
   * MySQL
-
-### Subir Infra e API
-Para subir o ambiente, rode o comando
-
-```
-$ docker-compose up -d
-```
 
 #### Os containers que subirão são:
 * postgresql_local
