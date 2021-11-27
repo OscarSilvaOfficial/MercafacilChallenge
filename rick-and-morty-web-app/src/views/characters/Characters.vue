@@ -1,20 +1,24 @@
 <template>
-  <vueper-slides
-    class="no-shadow list"
-    :dragging-distance="70"
-    :visible-slides="6"
-    :bullets="false"
-    :arrows="true"
-    :slide-ratio="2 / 8"
-    :gap="3"
-    >
-    <vueper-slide 
-      :style="getBackground(character.image)" 
-      :key="character.id" 
-      class="bg-screen d-flex justify-center align-start font-rem" v-for="character in characters" 
-      :title="character.name"
-    />
-  </vueper-slides>
+  <div class="list">
+    <h2 class='logo font-rem d-flex justify-center align-center' style='color: red; font-size: 6rem'>RMFlix</h2>
+    <!-- <h3 class="text-h3">Personagens</h3> -->
+    <vueper-slides
+      class="no-shadow mt-8"
+      :dragging-distance="70"
+      :visible-slides="6"
+      :bullets="false"
+      :arrows="true"
+      :slide-ratio="1 / 8"
+      :gap="3"
+      >
+      <vueper-slide 
+        :style="getBackground(character.image)" 
+        :key="character.id" 
+        class="bg-screen d-flex justify-center align-start font-rem" v-for="character in characters" 
+        :title="character.name"
+      />
+    </vueper-slides>
+  </div>
 </template>
 
 <script lang='ts'>
@@ -58,7 +62,6 @@ export default class Characters extends Vue {
     `
     const response: any = await this.graphql.get(query)
     this.characters = response.data.data.characters.results
-    console.log(this.characters)
   }
 
   getBackground(image: string): string {
@@ -68,20 +71,16 @@ export default class Characters extends Vue {
 </script>
 
 <style lang="scss">
-.list {
-  height: 100vh;
-  background-color: #fff;
-  margin-left: 256px;
-  padding: 30px 90px;
-
-  .bg-screen {
-    transition: all .5s;
-    opacity: .3;
-    &:hover {
-      transform: scale(1.1);
-      opacity: 1;
-      width: 200px;
-    }
+.logo {
+  margin-top: 2vh;
+}
+.bg-screen {
+  transition: all .5s;
+  opacity: .3;
+  &:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    width: 200px;
   }
 }
 </style> 
