@@ -3,19 +3,18 @@
     <h2 class='logo font-rem d-flex justify-center align-center' style='color: red; font-size: 6rem'>RMFlix</h2>
     <!-- <h3 class="text-h3">Personagens</h3> -->
     <vueper-slides
-      class="no-shadow mt-8"
+      class="no-shadow mt-11"
       :dragging-distance="70"
       :visible-slides="6"
       :bullets="false"
-      :arrows="true"
+      :arrows="false"
       :slide-ratio="1 / 8"
       :gap="3"
       >
       <vueper-slide 
         :style="getBackground(character.image)" 
         :key="character.id" 
-        class="bg-screen d-flex justify-center align-start font-rem" v-for="character in characters" 
-        :title="character.name"
+        class="bg-screen" v-for="character in characters" 
       />
     </vueper-slides>
   </div>
@@ -37,7 +36,6 @@ export default class Characters extends Vue {
 
   graphql = new GraphQLService()
   characters: ICharacter[] = []
-  $refs: any
 
   async mounted(): Promise<void> {
     const query = `
