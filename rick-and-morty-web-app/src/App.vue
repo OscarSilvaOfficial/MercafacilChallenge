@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import 'vueperslides/dist/vueperslides.css'
 // import Menu from '@/components/Menu.vue'
 
 export default Vue.extend({
