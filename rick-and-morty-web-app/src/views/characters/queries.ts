@@ -8,6 +8,7 @@ query {
       id,
       name,
       image,
+      species,
       location {
         name
       },
