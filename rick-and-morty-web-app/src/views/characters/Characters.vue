@@ -1,20 +1,22 @@
 <template>
   <div class="list">
-    <h2 class='logo font-rem d-flex justify-center align-center' style='color: red; font-size: 6rem'>RMFlix</h2>
-    <!-- <h3 class="text-h3">Personagens</h3> -->
+    <h2 class='logo font-rem d-flex justify-center align-center' style='color: red; font-size: 6rem'>R&MFlix</h2>
     <vueper-slides
+      v-if="showEpisedes"
+      slide-multiple
       class="no-shadow mt-11"
-      :dragging-distance="70"
       :visible-slides="6"
       :bullets="false"
       :arrows="false"
-      :slide-ratio="1 / 8"
-      :gap="3"
-      >
+      :slide-ratio="1 / 6"
+      :gap="5"
+      :dragging-distance="70">
       <vueper-slide 
+        :id="'character-' + character.name"
         :style="getBackground(character.image)" 
-        :key="character.id" 
-        class="bg-screen" v-for="character in characters" 
+        class="bg-screen" 
+        v-for="(character, i) in characters" 
+        :key="i"
       />
     </vueper-slides>
   </div>
@@ -27,6 +29,7 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import { Component, Vue } from 'vue-property-decorator';
 import { GraphQLService } from '@/services/graphql'
 import { ICharacter } from '@/intefaces/characters'
+import { CHARACTERS } from './queries'
 import 'vueperslides/dist/vueperslides.css'
 
 @Component({
@@ -35,35 +38,17 @@ import 'vueperslides/dist/vueperslides.css'
 export default class Characters extends Vue {
 
   graphql = new GraphQLService()
-  characters: ICharacter[] = []
+  characters?: ICharacter[]
+  showEpisedes = false
 
-  async mounted(): Promise<void> {
-    const query = `
-      query {
-        characters(page: 1) {
-          info {
-            count
-          }
-          results {
-            id,
-            name,
-            image,
-            location {
-              name
-            },
-            episode {
-              name
-            }
-          }
-        }
-      }
-    `
-    const response: any = await this.graphql.get(query)
-    this.characters = response.data.data.characters.results
+  async created(): Promise<void> {
+    const response: any = await this.graphql.get(CHARACTERS)
+    this.characters = await response.data.data.characters.results
+    this.showEpisedes = true
   }
 
   getBackground(image: string): string {
-    return `background-image: url(${image})`
+    return `background-image: url(${image}); background-size: cover`
   }
 }
 </script>
