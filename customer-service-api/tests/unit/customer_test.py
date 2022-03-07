@@ -1,7 +1,7 @@
 import phonenumbers
 from api.core.customer import Customer
 from api.core.validators.phone_number_validator import InvalidPhoneNumberException
-import logging
+import logging, re
 
 LOGGER = logging.getLogger(__name__)
 
@@ -20,7 +20,10 @@ def test_valid_macapa_customer():
     LOGGER.info(contact)
     assert contact['name'].isupper()
     assert phonenumbers.is_valid_number(phonenumbers.parse(contact['phone'], 'BR'))
-    
+    assert contact['phone'][0:3] == '+55' \
+      and contact['phone'][4:5] == '(' and contact['phone'][7:8] == ')' \
+      and contact['phone'][14:15] == '-' and len(contact['phone']) == 19
+      
 def test_valid_varejao_customer():
   customer = Customer(
     email="cliente@gmail.com.br",
@@ -35,6 +38,7 @@ def test_valid_varejao_customer():
   for contact in customer.contacts:
     LOGGER.info(contact)
     assert phonenumbers.is_valid_number(phonenumbers.parse(contact['phone'], 'BR'))
+    assert len(contact['phone']) == 13 and contact['phone'][0:2] == '55'
 
 def test_invalid_macapa_customer():
   try:
