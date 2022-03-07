@@ -1,6 +1,6 @@
 from api.core.validators.email_validator import EmailValidator
 from api.core.validators.phone_number_validator import PhoneNumberValidator
-from ports.validators_port import ValidatorsPort
+from api.ports.validators_port import ValidatorsPort
 
 
 class ValidatorRoot(ValidatorsPort):

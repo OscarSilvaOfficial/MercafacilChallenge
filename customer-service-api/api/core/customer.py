@@ -2,7 +2,7 @@ from api.core.validators.validator_root import ValidatorRoot
 import phonenumbers, re
 from typing import NewType
 
-from ports.validators_port import ValidatorsPort
+from api.ports.validators_port import ValidatorsPort
 
 
 Email = NewType('Email', str)

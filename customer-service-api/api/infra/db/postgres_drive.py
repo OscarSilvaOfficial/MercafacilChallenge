@@ -1,6 +1,6 @@
 from fast_sql_manager.implementations.postgres import PostgresRepository
 
-from ports.db import DB
+from api.ports.db import DB
 
 
 class Postgres(DB):

@@ -1,6 +1,6 @@
 from fast_sql_manager.implementations.mysql import MySQLRepository
 
-from ports.db import DB
+from api.ports.db import DB
 
 
 class MySql(DB):

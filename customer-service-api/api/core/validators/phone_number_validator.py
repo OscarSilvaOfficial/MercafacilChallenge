@@ -1,6 +1,6 @@
 import phonenumbers
 
-from ports.validators_port import ValidatorsPort
+from api.ports.validators_port import ValidatorsPort
 
 class InvalidPhoneNumberException(Exception):
   pass

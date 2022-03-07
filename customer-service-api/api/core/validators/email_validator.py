@@ -1,6 +1,6 @@
 import re
 
-from ports.validators_port import ValidatorsPort
+from api.ports.validators_port import ValidatorsPort
 
 class InvalidEmailException(Exception):
   pass
