@@ -14,12 +14,12 @@ class Postgres(DB):
       return self.postgres_driver.select_all(self.__table_name)
     return self.postgres_driver.select_all(self.__table_name, where)
   
-  def insert(self, table_columns: list, insert_values: tuple) -> None:
-    self.postgres_driver.insert(self.__table_name, table_columns, insert_values)
+  def insert(self, table_columns: list, insert_values: tuple):
+    return self.postgres_driver.insert(self.__table_name, table_columns, insert_values)
     
-  def update(self, set: dict, where: dict) -> None:
-    self.postgres_driver.update(self.__table_name, set, where)
+  def update(self, set: dict, where: dict):
+    return self.postgres_driver.update(self.__table_name, set, where)
     
-  def delete(self, where: dict) -> None:
-    self.postgres_driver.delete(self.__table_name, where)
+  def delete(self, where: dict):
+    return self.postgres_driver.delete(self.__table_name, where)
   
