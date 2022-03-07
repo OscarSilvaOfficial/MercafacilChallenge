@@ -1,5 +1,5 @@
 import phonenumbers
-from api.core.customer import Customer
+from api.core.domains.customer import Customer
 from api.core.validators.phone_number_validator import InvalidPhoneNumberException
 import logging, re
 
